@@ -1,6 +1,6 @@
 <?php
-namespace EasyModule\Gateways;
-abstract class BaseTable{
+namespace SimplePersitence\Gateways;
+abstract class SimpleTable{
 
     function __construct($db)
     {
@@ -31,6 +31,7 @@ abstract class BaseTable{
         $q = $this->builder->build();
         $this->db->execute($q);
     }
+
     function saveExistingColumns($assoc_array){
         $array_to_save = [];
         foreach($this->getTableColumns() as $key => $value){
@@ -93,6 +94,7 @@ abstract class BaseTable{
         }
         return $columns;
     }
+
     function getDuplicateColumns($columns){
         $q = 'DESCRIBE '.$this->getTableName();
         $db_columns = $this->db->query($q);
