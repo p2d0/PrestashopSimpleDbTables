@@ -1,0 +1,11 @@
+{
+    "name": "cerki/simple_prestashop_persistence",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Andrew",
+            "email": "cerkin-3@yandex.ru"
+        }
+    ],
+    "require": {}
+}
