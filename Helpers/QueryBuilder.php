@@ -1,5 +1,5 @@
 <?php
-namespace EasyModule\Gateways\Helpers;
+namespace SimpleTables\Helpers;
 class QueryBuilder{
     function __construct(){
         $this->query = '';

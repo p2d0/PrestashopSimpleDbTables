@@ -1,5 +1,6 @@
 <?php
-namespace SimplePersitence\Gateways;
+include_once __DIR__ . '/vendor/autoload.php';
+namespace SimpleTables;
 abstract class SimpleTable{
 
     function __construct($db)

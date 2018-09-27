@@ -1,11 +1,28 @@
 {
     "name": "cerki/simple_prestashop_persistence",
     "type": "library",
+    "description": "Simple tables for php",
     "authors": [
         {
             "name": "Andrew",
             "email": "cerkin-3@yandex.ru"
         }
     ],
-    "require": {}
+    "repositories": [{
+        "type":"package",
+        "package":{
+            "name":"cerki/simpletables",
+            "version":"dev-master",
+            "source":{
+                "url": "https://github.com/Patriot720/PrestashopSimpleDbTables.git",
+                "type":"git",
+                "reference":"master"
+            }
+        }
+    }],
+    "autoload": {
+        "psr-4": {
+            "SimpleTables\\":"\\"
+        }
+    }
 }
