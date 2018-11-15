@@ -28,5 +28,5 @@ abstract class  AbstractDatabase {
    function createTable($q){
        return $this->getDb()->query($q);
    }
-   abstract function query($q);
+   abstract function getDb();
 }
