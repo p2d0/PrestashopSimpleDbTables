@@ -5,7 +5,7 @@ abstract class  AbstractDatabase {
    function query($q){
        $result = $this->getDb()->query($q);
        if($result && $result->rowCount() > 0){
-           return $result->fetchAll(PDO::FETCH_ASSOC);
+           return $result->fetchAll(\PDO::FETCH_ASSOC);
        };
         return [];
    }
