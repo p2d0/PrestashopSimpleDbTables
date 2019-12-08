@@ -52,7 +52,7 @@ function dropTable();
 function deleteBy($data); // Similar to getBy
 function getBy($data,$order=NULL);
 function saveExistingColumns($assoc_array); // NOTE saves a new instance if primary key is not included or doesn't exists, otherwise updates entry
-function save($item) // throws error if primary key exists
+function save($item) // normal insert throws error if primary key exists 
 function getAll();
 function getColumnNames();
 ```
