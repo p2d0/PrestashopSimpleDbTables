@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>README.html</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+
+</head>
+
+<body>
+
+<h1>Prestashop Db tables</h1>
+
+<h1>Installation</h1>
+
+<p><code>composer require cerki/simple_prestashop_persistence</code></p>
+
+<h1>Example usage</h1>
+
+<p>``` php
+<?php
+use SimpleTables\Db\PrestaTable;
+class MyExampleTable extends PrestaTable{
+  function getTableName(){
+    return "mytablename";
+  }</p>
+
+<p>function getTableColumns(){
+    return [
+    "id" => "INTEGER NOT NULL PRIMARY<em>KEY",
+    "myfield1" => "VARCHAR(255)",
+    "myfield2" => "INTEGER NOT NULL"
+    ];
+  }
+}
+function my</em>function(){
+ $mytable = new MyExampleTable(); // NOTE you should have prestashop Db class loaded
+                                  // so either do it in module/controller or import config.inc.php
+ $mytable->saveExistingColumns([
+                              "myfield1" => "somedata1"
+                              "myfield2" => 2
+                              ]);
+ $mytable->getBy(["myfield1" => "somedata1"]
+ // ["myfield2" => "ASC"] second argument - sorting
+ ); // should return [["id" => 1,"myfield1" => "somedata1","myfield2"=>"somedata2"]]
+}
+```</p>
+
+<h1>Updating columns</h1>
+
+<p>You can update existing columns by calling 
+<code>php
+$mytable-&gt;updateTableWithColumns([
+                                "myfield3" =&gt; "BOOL" // add a new field
+                                "myfield1" =&gt; "VARCHAR(1024) NOT NULL" // update existing field
+                                ]);
+</code></p>
+
+<h1>Method list</h1>
+
+<p><code>php
+function updateTableWithColumns($columns);
+function dropTable();
+function deleteBy($data); // Similar to getBy
+function getBy($data,$order=NULL);
+function saveExistingColumns($assoc_array); // NOTE saves a new instance if primary key is not included or doesn't exists, otherwise updates entry
+function save($item) // throws error if primary key exists
+function getAll();
+function getColumnNames();
+</code></p>
+
+<h1>Technicalities</h1>
+
+<ul>
+<li>It Checks if table exists and creates a new one if it doesn't on each <code>new</code> call</li>
+<li>It creates table with utf8 utf8<em>unicode</em>ci collation</li>
+</ul>
+
+</body>
+</html>

@@ -34,3 +34,29 @@ function my_function(){
  ); // should return [["id" => 1,"myfield1" => "somedata1","myfield2"=>"somedata2"]]
 }
 ```
+
+# Updating columns #
+You can update existing columns by calling 
+``` php
+$mytable->updateTableWithColumns([
+                                "myfield3" => "BOOL" // add a new field
+                                "myfield1" => "VARCHAR(1024) NOT NULL" // update existing field
+                                ]); 
+```
+
+# Method list #
+
+``` php
+function updateTableWithColumns($columns);
+function dropTable();
+function deleteBy($data); // Similar to getBy
+function getBy($data,$order=NULL);
+function saveExistingColumns($assoc_array); // NOTE saves a new instance if primary key is not included or doesn't exists, otherwise updates entry
+function save($item) // throws error if primary key exists
+function getAll();
+function getColumnNames();
+```
+
+# Technicalities #
+  * It Checks if table exists and creates a new one if it doesn't on each `new` call
+  * It creates table with utf8 utf8_unicode_ci collation
