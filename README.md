@@ -16,7 +16,7 @@ class MyExampleTable extends PrestaTable{
 
   function getTableColumns(){
     return [
-    "id" => "INTEGER NOT NULL PRIMARY_KEY",
+    "id" => "INTEGER NOT NULL PRIMARY KEY",
     "myfield1" => "VARCHAR(255)",
     "myfield2" => "INTEGER NOT NULL"
     ];
