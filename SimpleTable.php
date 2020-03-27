@@ -56,7 +56,6 @@ abstract class SimpleTable{
         if ($order)
             $q->order($order);
         $q = $q->build();
-        var_dump($q);
         return $this->db->query($q);
     }
 
