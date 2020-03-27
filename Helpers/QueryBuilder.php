@@ -67,6 +67,17 @@ class QueryBuilder{
         return $this;
     }
 
+    function like($data)
+    {
+        $this->query .= ' WHERE ';
+        foreach ($data as $key => $value) {
+            $e = $key . ' LIKE "' . $value . '" AND ';
+            $this->query .= $e;
+        };
+        $this->query = substr($this->query, 0, -4);
+        return $this;
+    }
+
     function build(){
         $q = $this->query;
         $this->query = '';

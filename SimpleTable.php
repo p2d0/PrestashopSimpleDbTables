@@ -50,6 +50,15 @@ abstract class SimpleTable{
         $q = $q->build();
         return $this->db->query($q);
     }
+    function getLike($data,$order=NULL){
+        $q = $this->builder->selectEverythingFrom($this->getTableName())
+            ->like($data);
+        if ($order)
+            $q->order($order);
+        $q = $q->build();
+        var_dump($q);
+        return $this->db->query($q);
+    }
 
 
     function deleteBy($data){
