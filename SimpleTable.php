@@ -1,6 +1,6 @@
 <?php
 namespace SimpleTables;
-include_once __DIR__ . '/vendor/autoload.php';
+
 abstract class SimpleTable{
 
     function __construct($db)
