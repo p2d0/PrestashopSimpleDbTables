@@ -6,7 +6,6 @@ abstract class SimpleTable{
     function __construct($db)
     {
         $this->db = $db;
-        $this->createTableIfNotExists();
         $this->builder = new Helpers\QueryBuilder();
     }
 
@@ -70,7 +69,7 @@ abstract class SimpleTable{
         $this->db->drop($this->getTableName());
     }
 
-    private function createTableIfNotExists(){
+    public function createTableIfNotExists(){
         $q = 'CREATE TABLE IF NOT EXISTS ' . $this->getTableName() . '(';
         foreach ($this->getTableColumns() as $key => $value) {
             $q .= $key . ' ' . $value . ',';
